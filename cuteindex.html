@@ -1,0 +1,412 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Birthday!</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+body {
+  background-color: lightgray;
+  margin: 0;
+  min-height: 100%;
+}
+
+h1 {
+  color: purple;
+  text-align: center;
+  font-family: "Pacifico", cursive;
+}
+
+p {
+  font-family: verdana;
+  font-size: 20px;
+  text-align: center;
+}
+
+.birthday-container {
+    min-height: 100vh;
+    padding: 50px 20px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-size: 50px;
+    color: #7c3aed;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 8px rgba(124, 58, 237, 0.25);
+}
+
+h2 {
+    color: #ec4899;
+    font-size: 30px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+p {
+    color: #374151;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+
+.cake {
+    position: relative;
+    z-index: 3;
+    width: 200px;
+    height: 170px;
+    margin: 0 auto 0;
+    flex-shrink: 0;
+    transform: scale(0.6);
+}
+.cake-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    width: 160px;
+    height: 55px;
+    background: #b86bff;
+    border-radius: 8px 8px 18px 18px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.cake-top {
+    position: absolute;
+    bottom: 50px;
+    left: 45px;
+    width: 110px;
+    height: 50px;
+    background: #ff9dcc;
+    border-radius: 8px 8px 14px 14px;
+}
+.cream {
+    position: absolute;
+    bottom: 45px;
+    left: 32px;
+    width: 136px;
+    height: 18px;
+    background: white;
+    border-radius: 50%;
+}
+
+.candle {
+    position: absolute;
+    bottom: 100px;
+    width: 6px;
+    height: 30px;
+    background: purple;
+    border-radius: 2px;
+}
+
+.candle.one {
+    left: 68px;
+}
+
+.candle.two {
+    left: 97px;
+}
+
+.candle.three {
+    left: 126px;
+}
+
+
+.flame {
+    position: absolute;
+    top: -22px;
+    left: -1px;
+    width: 10px;
+    height: 15px;
+    background: #facc15;
+    border-radius: 50% 50% 50% 50%;
+    box-shadow: 0 0 15px #facc15;
+    animation: flicker 0.5s infinite alternate;
+}
+
+@keyframes flicker {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.2);
+    }
+}
+
+.balloon {
+    position: absolute;
+    width: 65px;
+    height: 80px;
+    border-radius: 50%;
+    animation: float 5s ease-in-out infinite;
+}
+
+.balloon::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 100px;
+    background: #555;
+    top: 78px;
+    left: 32px;
+}
+
+
+.balloon.pink {
+    background: #f472b6;
+}
+
+.balloon.purple {
+    background: #a78bfa;
+}
+
+.balloon.blue {
+    background: #60a5fa;
+}
+
+.balloon.yellow {
+    background: #facc15;
+}
+
+
+
+.balloon.one {
+    left: 2%;
+    top: 40px;
+    animation-delay: 0s;
+    z-index: 1;
+}
+
+.balloon.two {
+    right: 2%;
+    top: 40px;
+    animation-delay: 1s;
+    z-index: 1;
+}
+
+.balloon.three {
+    left: 4%;
+    bottom: 40px;
+    animation-delay: 2s;
+    z-index: 1;
+}
+
+.balloon.four {
+    right: 4%;
+    bottom: 40px;
+    animation-delay: 3s;
+    z-index: 1;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(-3deg);
+    }
+
+    50% {
+        transform: translateY(-30px) rotate(3deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(-3deg);
+    }
+}
+
+button {
+    display: block;
+    background: linear-gradient(135deg, #7c3aed, #ec4899);
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 30px;
+    font-size: 17px;
+    cursor: pointer;
+    margin: 25px auto 0;
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.3);
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(124, 58, 237, 0.4);
+}
+
+.heart {
+    position: absolute;
+    font-size: 25px;
+    animation: heartFloat 4s infinite ease-in-out;
+    pointer-events: none;
+}
+
+.heart {
+    z-index: 1;
+}
+
+.heart.one {
+    top: 15%;
+    left: 8%;
+}
+
+.heart.two {
+    top: 15%;
+    right: 8%;
+}
+
+.heart.three {
+    bottom: 15%;
+    left: 10%;
+}
+
+@keyframes heartFloat {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 20px;
+    top: -20px;
+    animation: confettiFall 4s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.message-card {
+    max-width: 650px;
+    margin: 30px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 2;
+}
+
+
+@media (max-width: 600px) {
+
+    h1 {
+        font-size: 36px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .cake {
+        transform: scale(0.85);
+    }
+
+    .balloon {
+        width: 30px;
+        height: 45px;
+    }
+
+    .message-card {
+        padding: 20px;
+    }
+}
+
+  
+<div class="birthday-container">
+
+    <div class="confetti" style="left:10%; background:#f472b6; animation-delay:0s;"></div>
+    <div class="confetti" style="left:25%; background:#facc15; animation-delay:0.6s;"></div>
+    <div class="confetti" style="left:40%; background:#60a5fa; animation-delay:1.2s;"></div>
+    <div class="confetti" style="left:55%; background:#a78bfa; animation-delay:1.8s;"></div>
+    <div class="confetti" style="left:70%; background:#f472b6; animation-delay:2.4s;"></div>
+    <div class="confetti" style="left:85%; background:#facc15; animation-delay:3s;"></div>
+
+    <div class="balloon pink one"></div>
+    <div class="balloon purple two"></div>
+    <div class="balloon blue three"></div>
+    <div class="balloon yellow four"></div>
+
+    <div class="heart one">💜</div>
+    <div class="heart two">💗</div>
+    <div class="heart three">💖</div>
+
+    <h1>Happy Birthday my love!</h1>
+
+    <div class="cake">
+        <div class="candle one">
+            <div class="flame"></div>
+        </div>
+        <div class="candle two">
+            <div class="flame"></div>
+        </div>
+        <div class="candle three">
+            <div class="flame"></div>
+        </div>
+        <div class="cake-top"></div>
+        <div class="cream"></div>
+        <div class="cake-bottom"></div>
+    </div>
+
+</style>
+</body>
+</html>
+
+<h1>style="color:purple;text-align:center; "🎉HAPPY BIRTHDAY🎁" </h1>
+<p>Okayyyyy... so today na your birthday i wish you plenty things , long life and prosperity , everthing good in life and may God bless you abundantely but i get some serious warnings because i don taya😒 .</p>
+<li>You too wickeddd change abeggg</li>
+<li>Stop to dey thief my things i nor get money to dey buy buy</li> 
+<li>Find relationship enter SINGLE GIRL</li>
+<li>You see this next one if u try am i go beat youu... NOR BRING AJO MAKE WE DO AGAIN OOO JESUS THIS LAST ONE ALMOST MAKE ME CRASE😂😭
+<li>Above all i love you short woman😍❤️</li>
+
+<h2>style="color:purple; text-align:center;"lets go down a little memory lane</h2>
+<p>Mirabel on her matriculation day after stealing my gown </p>
+<img src="instagram 2.jpeg"alt="mirabel matric"width="300">
+
+<p>The frist time she did lashes</p>
+<img src="instagram 4.jpeg" alt="mirabel om lashes"width="300"> 
+
+<p>Mirabel wearing coperate [get a boyfriend so you will not be sending me plenty of yor picturs please] she looks beautiful sha 
+<img src="instragram 5"alt="mirabel smiling"width-"300">
+
+<p> A beautiful picture of you</p>
+<button onclick="window.location.href='instagram 9'" style="background-color:brown; color:white; padding:12px 24px; font-sizw:18px; border:none; boder-radius:8px;"> a beautiful girl</button> 
+
+</body>
+</html>
+
+
